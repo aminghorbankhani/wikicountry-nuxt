@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'WikiCountries',
+      title: 'WikiCountry (Nuxt3)',
       meta: [
         { name: 'msapplication-TileColor', content: '#da532c' },
         { name: 'theme-color', content: '#ffffff' },

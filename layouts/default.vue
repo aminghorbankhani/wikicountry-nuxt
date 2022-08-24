@@ -11,7 +11,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../assets/styles/app.css';
 
 useHead({
-  titleTemplate: (titleChunk) => (titleChunk ? `${titleChunk} - WikiCountry` : 'WikiCountry'),
+  titleTemplate: (titleChunk) => (titleChunk ? `${titleChunk} - WikiCountry (Nuxt3)` : 'WikiCountry (Nuxt3)'),
 });
 
 const darkMode = useDarkMode();
