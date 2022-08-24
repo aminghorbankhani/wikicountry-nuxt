@@ -2,11 +2,18 @@ import { defineNuxtConfig } from 'nuxt';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ],
   typescript: {
     strict: true,
   },
   build: {
-    // transpile: ['@fortawesome'],
+    transpile: [
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/vue-fontawesome',
+      '@fortawesome/free-regular-svg-icons',
+    ],
   },
   app: {
     head: {
