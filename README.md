@@ -1,42 +1,22 @@
-# Nuxt 3 Minimal Starter
+# WikiCountry
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Small and simple SPA that gets information of countries from [REST Countries API](https://restcountries.com/#api-endpoints-v2-all) and displays them to the users.
 
-## Setup
+## Demo
 
-Make sure to install the dependencies:
+To overview my work visit this **[Demo](https://wikicountry-nuxt.vercel.app)** on Vercel.
 
-```bash
-# yarn
-yarn install
+## Technologies
 
-# npm
-npm install
+* Bootstrap 5
+* Nuxt 3
+* Fetch
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+## Implementations
 
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+* Display all countries from the API on the homepage
+* Search in countries through an input field using the API
+* Filter countries by their regions using the API
+* Display extended information about each country on detail page
+* Implement dark mode and light mode without using any 3rd party libraries 
+* Lazy load images to improve the page loading speed
