@@ -59,23 +59,33 @@ watchEffect(async (): Promise<void> => {
   if (route.query.region) {
     searchedText.value = '';
     regionLoading.value = true;
-    regionFilteredResult.value = await $fetch<Country[]>(`https://restcountries.com/v2/region/${route.query.region}`).catch(() => []);
+    regionFilteredResult.value = await $fetch<Country[]>(`https://restcountries.com/v2/region/${route.query.region}`);
     regionLoading.value = false;
   }
 });
 
 const search = async (text: string): Promise<void> => {
+  searchedLoading.value = true;
   if (searchController.value) {
     searchController.value.abort();
   }
   searchController.value = new AbortController();
   const { signal } = searchController.value;
-  searchedLoading.value = true;
-  searchedResult.value = await $fetch<Country[]>(
-    `https://restcountries.com/v2/name/${text}`,
-    { signal },
-  ).catch(() => []);
-  searchedLoading.value = false;
+
+  try {
+    searchedResult.value = await $fetch<Country[]>(
+      `https://restcountries.com/v2/name/${text}`,
+      { signal },
+    );
+    searchedLoading.value = false;
+  } catch (error: Error) {
+    if (error.response?.status === 404) {
+      searchedResult.value = [];
+      searchedLoading.value = false;
+    } else if (error.response) {
+      searchedLoading.value = false;
+    }
+  }
 };
 
 const handleSearch = async (value: string): Promise<void> => {
